@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/forms.css">
+  <style>
+    #output{
+        border-radius:5px;
+        min-height:40px;
+        border:1px solid black;
+        margin:auto;
+        width:50%;
+        font-size:x-large;
+    }
+  </style>
  </head>
  <body>
      <header>
@@ -22,13 +32,14 @@
    <main class="wrapper">
  
     <h2 class="subheader">Place form code below:</h2>
-    <form method="get" action="" class="main-form">
+    <div id="output">Output goes here</div>
+    <form method="post" action="" class="main-form">
       <div>
-        <label for="FirstName">First Name</label><br>
-        <input type="text" name="FirstName" id="FirstName" placeholder="First Name" required autofocus>
+        <label for="input">input</label><br>
+        <input type="text" name="input" id="input" placeholder="input" required autofocus>
       </div>
       <div>
-        <input type="submit">
+        <input type="submit" id="submit">
       </div>
     </form>
     <h3>Page Origins</h3>
@@ -43,5 +54,20 @@
     </footer>
   </main>
   <script src="js/main.js"></script>   
+  <script>
+      const mySubmit = document.querySelector("#submit");
+      console.log (mySubmit);
+
+      mySubmit.addEventListener("click",function(ev){
+        ev.preventDefault();
+        const myInput = document.querySelector("#input");
+        const myOutput = document.querySelector("#output");
+        myOutput.innerHTML = myInput.value;
+        //alert(myInput.value);
+      });
+
+
+
+  </script>
  </body>
 </html>
